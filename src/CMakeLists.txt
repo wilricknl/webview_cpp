@@ -12,7 +12,17 @@ if (WIN32)
   exec_program(${NUGET_EXE} ARGS install "Microsoft.Windows.ImplementationLibrary" -Version 1.0.220201.1
       -ExcludeVersion -OutputDirectory ${CMAKE_BINARY_DIR}/packages)
   
-  target_link_libraries(app 
-      PRIVATE ${CMAKE_BINARY_DIR}/packages/Microsoft.Web.WebView2/build/native/Microsoft.Web.WebView2.targets
-      PRIVATE ${CMAKE_BINARY_DIR}/packages/Microsoft.Windows.ImplementationLibrary/build/native/Microsoft.Windows.ImplementationLibrary.targets)
+  if(${CMAKE_SIZEOF_VOID_P} STREQUAL 8)
+    set(architecture x64)
+  else()
+    set(architecture x86)
+  endif()
+
+  target_include_directories(app
+    PUBLIC ${CMAKE_BINARY_DIR}/packages/Microsoft.Web.WebView2/build/native/include
+    PUBLIC ${CMAKE_BINARY_DIR}/packages/Microsoft.Windows.ImplementationLibrary/include
+  )
+
+  target_link_libraries(app
+    PUBLIC ${CMAKE_BINARY_DIR}/packages/Microsoft.Web.WebView2/build/native/${architecture}/WebView2LoaderStatic.lib)
 endif()

@@ -25,6 +25,10 @@ if (NOT EXISTS "${PROJECT_SOURCE_DIR}/external/webview/webview.h")
     message(FATAL_ERROR "The webview submodule was not downloaded!")
 endif()
 
+if (MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+
 include_directories(external/webview)
 
 add_subdirectory(src)
