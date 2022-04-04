@@ -29,7 +29,7 @@ if (MSVC)
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()
 
-include_directories(external/webview)
+include_directories(include external/webview)
 
 add_subdirectory(webview)
 add_subdirectory(src)
