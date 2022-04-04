@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webview_cpp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Webview_cpp</h1>
+    <p>A simple demonstration on how to use webview to create awesome C++ applications!</p>
+    <table>
+        <caption>Visual Studio commands</caption>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+            <tr>
+                <td><kbd>Ctrl+B</kbd></td>
+                <td>Build the project</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl+F5</kbd></td>
+                <td>Run the project without debugging</td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="Add(1, 2).then(function(result){ onAdd(result) })">Call the backend!</button>
+    <button onclick="SetTableData(1, 2).then(function(result){ onSetTableData(result) })">Get table data!</button>
+    <button onclick="GetJSON({'header': 'Some text', 'body': 'This is quite cool'})">Send data to backend!</button>
+    <script>
+        function onAdd(result) {
+            var p = document.createElement('p');
+            p.innerHTML = result;
+            document.body.appendChild(p);
+        }
+
+        function onSetTableData(data) {
+            var data = JSON.parse(data);
+
+            var command = document.createElement('td');
+            command.innerHTML = data.command;
+
+            var description = document.createElement('td');
+            description.innerHTML = data.description;
+            
+            var tr = document.createElement('tr');
+            tr.appendChild(command);
+            tr.appendChild(description);
+
+            var table_body = document.getElementById("table_body");
+            table_body.appendChild(tr);
+        }
+    </script>
+</body>
+</html>
