@@ -31,4 +31,5 @@ endif()
 
 include_directories(external/webview)
 
+add_subdirectory(webview)
 add_subdirectory(src)
