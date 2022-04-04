@@ -6,9 +6,28 @@ applications using a webview frontend.
 **Table of Contents**
 
 - [Webview_cpp](#webview_cpp)
-- [Windows](#windows)
+- [Linux](#linux)
   - [Requirements](#requirements)
   - [Building and running](#building-and-running)
+- [Windows](#windows)
+  - [Requirements](#requirements-1)
+  - [Building and running](#building-and-running-1)
+
+# Linux
+
+## Requirements
+
+* The web content engine library for GTK
+
+```shell
+# installation on Ubuntu based distributions
+sudo apt-get install libwebkit2gtk-4.0-dev
+```
+
+## Building and running
+
+Open the root `CMakeLists.txt` in CLion. Then the project can be built with 
+`Ctrl+F9` and run with `Shift+F10`.
 
 # Windows
 
