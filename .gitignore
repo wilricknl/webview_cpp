@@ -1,0 +1,10 @@
+# CLion directories and files
+**/.idea/*
+**/cmake-build-debug/*
+
+# VS Code directories and files
+.vs/*
+
+# Build directories
+out/*
+build/*

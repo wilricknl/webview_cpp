@@ -1,0 +1,12 @@
+body {
+    background-color: whitesmoke;
+}
+
+h1 {
+    font-family: Helvetica, "Nimbus Sans";
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
