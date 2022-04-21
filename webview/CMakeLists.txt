@@ -1,10 +1,15 @@
 add_library(webview webview.cpp)
 
-if (UNIX)
+if (UNIX AND NOT APPLE)
   find_package(PkgConfig REQUIRED)
   pkg_check_modules(gtk REQUIRED gtk+-3.0 IMPORTED_TARGET)
   pkg_check_modules(webkit REQUIRED webkit2gtk-4.0 IMPORTED_TARGET)
   target_link_libraries(webview PkgConfig::gtk PkgConfig::webkit)
+endif()
+
+if (APPLE)
+  find_package(PkgConfig REQUIRED)
+  target_link_libraries(webview "-framework Webkit")
 endif()
 
 if (WIN32)
