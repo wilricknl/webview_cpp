@@ -9,9 +9,12 @@ applications using a webview frontend.
 - [Linux](#linux)
   - [Requirements](#requirements)
   - [Building and running](#building-and-running)
-- [Windows](#windows)
+- [MacOS](#macos)
   - [Requirements](#requirements-1)
   - [Building and running](#building-and-running-1)
+- [Windows](#windows)
+  - [Requirements](#requirements-2)
+  - [Building and running](#building-and-running-2)
 
 # Linux
 
@@ -28,6 +31,17 @@ sudo apt-get install libwebkit2gtk-4.0-dev
 
 Open the root `CMakeLists.txt` in CLion. Then the project can be built with 
 `Ctrl+F9` and run with `Shift+F10`.
+
+# MacOS
+
+## Requirements
+
+* CMake
+* WebKit framework (should come preinstalled)
+
+## Building and running
+
+Todo: instructions
 
 # Windows
 
